@@ -4,7 +4,6 @@ close all
 clear variables
 clc
 
-
 report_folder = fullfile(cd, "reports");
 mkdir(report_folder)
 
