@@ -27,7 +27,7 @@ r_bern = r_uniform < p;
 
 % open figure
 figure("Name", "bernoulli_sample")
-% keep multipel graphical objects
+% keep multiple graphical objects
 hold on
 % draw histogram
 histogram(r_bern,...

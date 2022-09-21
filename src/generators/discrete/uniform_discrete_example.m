@@ -1,4 +1,4 @@
-%% Uniformly Distributed Discrete Randdom Variables
+%% Uniformly Distributed Discrete Random Variables
 %%
 
 close all
@@ -7,10 +7,11 @@ clc
 
 %% Parameters
 
-% max integer givin domain {1, ... max_value}
+% max integer giving domain {1, ... max_value}
 max_value = 9;
 % sample size
 n = 1e6;
+
 
 %% Generation
 
@@ -44,7 +45,7 @@ scatter(1:max_value, 1/max_value * ones(1, max_value),...
 
 xlabel("domain")
 ylabel("probability")
-title("Uniformly Distribute Random Sample")
+title("Uniformly Distributed Random Sample")
 legend("Location", "south")
 
 box on

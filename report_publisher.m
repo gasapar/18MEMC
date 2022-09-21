@@ -1,4 +1,4 @@
-%% Generation of PDF Reports From Example Scripts
+%% Generation of PDF Reports From All Example Scripts
 %%
 close all
 clear variables

@@ -36,7 +36,7 @@ r_bern = r_bin(1:n);
 
 % open figure
 figure("Name", "bernoulli_sample_bin")
-% keep multipel graphical objects
+% keep multiple graphical objects
 hold on
 % draw histogram
 histogram(r_bern,...
