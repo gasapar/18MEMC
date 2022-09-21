@@ -14,6 +14,7 @@ mkdir(report_folder)
 
 %% Report Generation
 
+% iterate over all example scripts
 for file = dir("src/**/*_example.m").'
 
     [~, core_name, extension] = fileparts(file.name);
