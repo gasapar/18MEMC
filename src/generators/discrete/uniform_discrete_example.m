@@ -5,6 +5,7 @@ close all
 clear variables
 clc
 
+
 %% Parameters
 
 % max integer giving domain {1, ... max_value}
