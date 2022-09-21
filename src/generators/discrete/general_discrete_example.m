@@ -8,7 +8,7 @@ clc
 
 %% Parameters
 
-% probability vector
+% probability vector, not normalized
 p = [8, 2, 4, 1];
 % sample size
 n = 1e6;
@@ -24,6 +24,7 @@ r = rand(n, 1);
 r_sample = nan(n, 1);
 
 for idx = 1:n
+    % initialize variables
     S = r(idx);
     k = 1;
     
@@ -32,7 +33,7 @@ for idx = 1:n
         k = k + 1;
         S = S - p(k);
     end
-    
+    % save generatedd value to array
     r_sample(idx) = k;
 end
 
