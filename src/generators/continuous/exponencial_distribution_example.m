@@ -7,18 +7,6 @@ clc
 
 
 %% Parameters
-
-% parameter of distribution
-lambda_par = 4;
-% probability density function with set parameter
-exp_pdf = @(x) lambda_par * exp(-lambda_par * x);
-% inverse cumulative distribution function
-exp_icdf = @(y) -1/lambda_par * log(y);
-% sample size
-n = 1e4;
-
-
-%% Generation
 % PDF of exp. distribution:
 %
 % $$f(x) = \lambda\, \exp(-\lambda\,x)$$
@@ -31,6 +19,18 @@ n = 1e4;
 %
 % $$F^{-1}(y) = -1/\lambda\,\ln(1-y)$$
 %
+
+% parameter of distribution
+lambda_par = 4;
+% probability density function with set parameter
+exp_pdf = @(x) lambda_par * exp(-lambda_par * x);
+% inverse cumulative distribution function
+exp_icdf = @(y) -1/lambda_par * log(y);
+% sample size
+n = 1e4;
+
+
+%% Generation
 
 % sample from U(0, 1)
 r_uniform = rand(n, 1);
@@ -58,7 +58,7 @@ fplot(exp_pdf, [0, max(r_exp)],...
     "Color", "red",...
     "LineWidth", 2,...
     "DisplayName", "pdf")
-
+% add labels
 xlabel("domain")
 ylabel("probability density")
 title("Exponentialy Distributed Random Sample")
