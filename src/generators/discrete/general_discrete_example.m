@@ -33,7 +33,7 @@ for idx = 1:n
         k = k + 1;
         S = S - p(k);
     end
-    % save generatedd value to array
+    % save generated value to array
     r_sample(idx) = k;
 end
 
