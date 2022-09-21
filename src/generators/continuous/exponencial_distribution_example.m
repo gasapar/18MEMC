@@ -8,7 +8,7 @@ clc
 
 %% Parameters
 
-% parameter ofr distribution
+% parameter of distribution
 lambda_par = 4;
 % probability density function with set parameter
 exp_pdf = @(x) lambda_par * exp(-lambda_par * x);
@@ -19,11 +19,11 @@ n = 1e4;
 
 
 %% Generation
-% PDF of exp. distribution is:
+% PDF of exp. distribution:
 %
 % $$f(x) = \lambda\, \exp(-\lambda\,x)$$
 %
-% CDF of exp. distribution is:
+% CDF of exp. distribution:
 %
 % $$F(x) = 1 - \exp(-\lambda\,x)$$
 %
