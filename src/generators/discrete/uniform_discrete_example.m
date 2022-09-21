@@ -1,43 +1,41 @@
-%% Example of Generation of Bernouli Random Numbers
+%% Uniformly Distributed Discrete Randdom Variables
 %%
 
 close all
 clear variables
 clc
 
-
 %% Parameters
 
-% probability specifying bern. distribution 
-p = 0.6;
-% sample size to generate
+% max integer givin domain {1, ... max_value}
+max_value = 9;
+% sample size
 n = 1e6;
-
 
 %% Generation
 
-% generate from U(0, 1)
-r_uniform = rand(n, 1);
-% with probab. 'p' get 'true'
-r_bern = r_uniform < p;
+% sample from U(0, 1)
+r_cont = rand(n, 1);
+% sample from U({1, ..., max_value})
+r_disc = floor(r_cont * max_value) + 1;
 
 
 %% Visualisation
 % Plot histogram of obtained values vs. theor. probabilities.
 
 % open figure
-figure("Name", "bernoulli_sample")
+figure("Name", "uniform_discrete_sample")
 % keep multipel graphical objects
 hold on
 % draw histogram
-histogram(r_bern,...
+histogram(r_disc,...
     "FaceAlpha", 1,...
     "FaceColor", "black",...
     "EdgeColor", "white",...
     "Normalization", "probability",...
     "DisplayName", "histogram")
 % draw probabilities
-scatter([0, 1], [1-p, p],...
+scatter(1:max_value, 1/max_value * ones(1, max_value),...
     "Marker", "o",...
     "SizeData", 50,...
     "MarkerFaceColor", "red",...
@@ -46,8 +44,8 @@ scatter([0, 1], [1-p, p],...
 
 xlabel("domain")
 ylabel("probability")
-title("Bernoulli Random Sample")
-legend()
+title("Uniformly Distribute Random Sample")
+legend("Location", "south")
 
 box on
 grid on
