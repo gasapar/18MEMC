@@ -16,7 +16,7 @@ n = 1e6;
 
 %% Generation
 
-% ensure normalization of probab. vector
+% ensure normalization of probab. vector, sum must be equal to one
 p = p / sum(p);
 % sample from U(0, 1)
 r = rand(n, 1);
