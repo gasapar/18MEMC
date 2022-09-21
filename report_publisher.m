@@ -1,11 +1,18 @@
 %% Generation of PDF Reports From All Example Scripts
 %%
+
 close all
 clear variables
 clc
 
+
+%% Report Folder Creation
+
 report_folder = fullfile(cd, "reports");
 mkdir(report_folder)
+
+
+%% Report Generation
 
 for file = dir("src/**/*_example.m").'
 
