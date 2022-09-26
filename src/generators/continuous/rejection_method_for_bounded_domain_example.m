@@ -7,11 +7,12 @@ clc
 
 
 %% Parameters
+% The aim is to generate from a distribution with bounded domain.
 
 % define domain as interval
 domain = [0, pi] - 0.5 * pi;
 % define probab. distribution using density
-% note that pdf is normalized
+% note that pdf is normalised
 pdf = @(x) 0.5 * sin(x + 0.5 * pi);
 % define max of pdf
 pdf_max = 0.5;
@@ -22,16 +23,16 @@ n = 1e3;
 
 %% Generation
 
-% generete x coordinate, U(a, b)
+% generate x coordinate, U(a, b)
 x = rand(n, 1) * (domain(2) - domain(1)) + domain(1);
 % generate y coordinate, U(0, pdf_max)
 y = rand(n, 1) * pdf_max;
 
 % check if y < pdf(x)
-point_in_under_pdf = y < pdf(x);
+point_is_under_pdf = y < pdf(x);
 
-% accept only such x, for which hold y < pdf(x)
-r_sample = x(point_in_under_pdf);
+% accept only such x, for which holds y < pdf(x)
+r_sample = x(point_is_under_pdf);
 
 
 %% Visualisation
@@ -53,10 +54,10 @@ fplot(pdf, domain,...
     "Color", "blue")
 
 % draw rejected sample
-scatter(x(~point_in_under_pdf), y(~point_in_under_pdf), ". red",...
+scatter(x(~point_is_under_pdf), y(~point_is_under_pdf), ". red",...
     "DisplayName", "rejected points")
 % draw accepted sample
-scatter(x(point_in_under_pdf), y(point_in_under_pdf), ". green",...
+scatter(x(point_is_under_pdf), y(point_is_under_pdf), ". green",...
     "DisplayName", "accepted points")
 
 xlim(domain)
