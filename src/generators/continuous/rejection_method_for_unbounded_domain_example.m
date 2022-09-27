@@ -9,7 +9,8 @@ clc
 %% Parameters
 % The aim is to generate from standard normal distribution.
 % Note that
-% $\forall x \in \mathbb{R},\quad \mathrm{pdf}_{\mathrm{norm.}}(x) < \mathrm{pdf}_{\mathrm{exp.}}(x).$
+% $\forall x \in \mathbb{R},\quad 
+% \mathrm{pdf}_{\mathrm{norm.}}(x) < \mathrm{pdf}_{\mathrm{exp.}}(x).$
 
 % define pdf of N(0, 1)
 pdf_n = @(x) normpdf(x);
