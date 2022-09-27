@@ -24,9 +24,9 @@ n_pairs = ceil(n/2);
 gamma_1 = rand(n_pairs, 1);
 gamma_2 = rand(n_pairs, 1);
 
-% calculate common multiple
+% compute common multiple
 common_mult = sqrt(-2 * log(gamma_1));
-% calculate common argument of goniometric functions
+% compute common argument of goniometric functions
 gonio_arg = 2 * pi * gamma_2;
 % generate samples
 r_1 = common_mult .* sin(gonio_arg);
@@ -38,7 +38,7 @@ r_sample = [r_1; r_2];
 r_sample = r_sample(1:n);
 
 
-%% Visualization
+%% Visualisation
 
 figure("Name", "normal_by_transform")
 hold on
