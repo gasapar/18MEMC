@@ -7,6 +7,7 @@ clc
 
 
 %% Parameters
+% The aim is to generate from standard normal distribution.
 
 % define pdf of N(0, 1)
 pdf = @(x) normpdf(x);
@@ -33,8 +34,8 @@ end
 %% Visualisation
 
 figure("Name", "normal_by_sum")
-htl = tiledlayout("flow",...
-    "Padding", "tight");
+tiledlayout("flow",...
+    "Padding", "tight")
 
 for idx = 1:numel(sum_counts)
     nexttile
