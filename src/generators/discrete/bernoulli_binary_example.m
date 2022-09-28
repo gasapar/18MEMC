@@ -1,4 +1,4 @@
-%% Example of Generation of Bernouli Random Numbers Using Binary Numbers
+%% Example of Generation of Bernoulli Random Numbers Using Binary Numbers
 %%
 
 close all
@@ -8,7 +8,6 @@ clc
 
 %% Parameters
 % Probability is fixed to 0.5 given the algorith principle.
-
 
 % binary numbers lenght
 bin_length = 10;
