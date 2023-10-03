@@ -20,20 +20,19 @@ clc
 % $$F^{-1}(y) = -1/\lambda\,\ln(1-y)$$
 %
 
-% parameter of distribution
+sample_size = 1e4;
+% parameter of the distribution
 lambda_par = 4;
 % probability density function with set parameter
 exp_pdf = @(x) lambda_par * exp(-lambda_par * x);
 % inverse cumulative distribution function
 exp_icdf = @(y) -1/lambda_par * log(y);
-% sample size
-n = 1e4;
 
 
 %% Generation
 
 % sample from U(0, 1)
-r_uniform = rand(n, 1);
+r_uniform = rand(sample_size, 1);
 % use icdf
 r_exp = exp_icdf(r_uniform);
 
@@ -52,15 +51,15 @@ histogram(r_exp,...
     "EdgeColor", "white",...
     "Normalization", "pdf",...
     "LineWidth", 0.1,...
-    "DisplayName", "histogram")
+    "DisplayName", "Histogram")
 % draw pdf
 fplot(exp_pdf, [0, max(r_exp)],...
     "Color", "red",...
     "LineWidth", 2,...
     "DisplayName", "pdf")
 % add labels
-xlabel("domain")
-ylabel("probability density")
+xlabel("Domain")
+ylabel("Probability Density")
 title("Exponentialy Distributed Random Sample")
 legend("Location", "northeast")
 

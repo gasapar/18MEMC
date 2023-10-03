@@ -7,26 +7,25 @@ clc
 
 
 %% Parameters
-% The aim is to generate from a distribution with bounded domain.
+% The aim is to generate a sample from a distribution with bounded domain.
 
 % define domain as interval
 domain = [0, pi] - 0.5 * pi;
 % define probab. distribution using density
-% note that pdf is normalised
+% note that the defined pdf is normalised
 pdf = @(x) 0.5 * sin(x + 0.5 * pi);
 % define max of pdf
 pdf_max = 0.5;
 
-% sample size
-n = 1e3;
+sample_size = 2e3;
 
 
 %% Generation
 
 % generate x coordinate, U(a, b)
-x = rand(n, 1) * (domain(2) - domain(1)) + domain(1);
+x = rand(sample_size, 1) * (domain(2) - domain(1)) + domain(1);
 % generate y coordinate, U(0, pdf_max)
-y = rand(n, 1) * pdf_max;
+y = rand(sample_size, 1) * pdf_max;
 
 % check if y < pdf(x)
 point_is_under_pdf = y < pdf(x);
@@ -46,7 +45,7 @@ histogram(r_sample,...
     "FaceColor", "black",...
     "EdgeColor", "white",...
     "Normalization", "pdf",...
-    "DisplayName", "histogram")
+    "DisplayName", "Histogram")
 
 % draw pdf
 fplot(pdf, domain,...
@@ -55,16 +54,16 @@ fplot(pdf, domain,...
 
 % draw rejected sample
 scatter(x(~point_is_under_pdf), y(~point_is_under_pdf), ". red",...
-    "DisplayName", "rejected points")
+    "DisplayName", "Rejected Points")
 % draw accepted sample
 scatter(x(point_is_under_pdf), y(point_is_under_pdf), ". green",...
-    "DisplayName", "accepted points")
+    "DisplayName", "Accepted Points")
 
 xlim(domain)
 ylim([0, pdf_max])
 
-xlabel("domain")
-ylabel("probability density")
+xlabel("Domain")
+ylabel("Probability Density")
 title("Rejection Generated Sample")
 legend("Location", "northeastoutside")
 

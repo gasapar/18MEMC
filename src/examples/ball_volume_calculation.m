@@ -1,5 +1,6 @@
-%% Calculate volume of N-dimensional ball
-%
+%% Calculate Volume of d-dimensional ball
+%%
+
 close all
 clear variables
 clc
