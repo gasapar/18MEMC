@@ -1,8 +1,8 @@
 # 18MEMC
 MATLAB Monte Carlo Scripts and Examples
 
-Created for lecture Monte Carlo Method at
-CTU FACULTY OF NUCLEAR SCIENCES AND PHYSICAL ENGINEERING.
+Created for the lecture Monte Carlo Method at
+CTU IN PRAGUE FACULTY OF NUCLEAR SCIENCES AND PHYSICAL ENGINEERING.
 
-Directory 'src' containes example scripts for various MC methods.
-It is posibble to automaticaly generate pdf reports of these scripts by running script report_publisher.m.
+Directory 'src' contains example scripts for various MC methods.
+It is possible to automatically generate pdf reports of these scripts by running script report_publisher.m.
