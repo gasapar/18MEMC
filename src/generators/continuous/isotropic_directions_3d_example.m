@@ -8,8 +8,7 @@ clc
 
 %% Parameters
 
-% sample size
-n = 1e3;
+sample_size = 1e3;
 % flag to run animation
 run_animation = false;
 
@@ -27,9 +26,9 @@ run_animation = false;
 % distributed sample.
 
 % generate from U(-1, 1)
-r_mu = rand(n, 1) * 2 - 1;
+r_mu = rand(sample_size, 1) * 2 - 1;
 % generate from U(0, 2*pi)
-r_phi = rand(n, 1) * 2*pi;
+r_phi = rand(sample_size, 1) * 2*pi;
 
 % compute common multiple
 common_mult = sqrt(1 - r_mu.^2);
@@ -47,7 +46,7 @@ hold on
 
 % draw random points
 scatter3(x, y, z, ". black",...
-    "DisplayName", "random sample")
+    "DisplayName", "Random Sample")
 % draw point (0, 0, 0) for orientation
 scatter3(0, 0, 0, "filled", "red",...
     "DisplayName", "(0, 0, 0)")
