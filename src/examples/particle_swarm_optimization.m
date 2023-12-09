@@ -1,4 +1,4 @@
-%% Find Minimum of the Function Uign Particle Swarms
+%% Find Minimum of the Function Using Particle Swarms
 %%
 
 close all
@@ -7,7 +7,6 @@ clc
 
 
 %% Arguments
-
 
 space_dimension = 2;
 
