@@ -8,6 +8,7 @@ clc
 
 %% Arguments
 
+
 space_dimension = 2;
 
 % function to find the minimum of
@@ -40,7 +41,7 @@ generation_history = evaluateGeneration(population, population_eval);
 for idx = 2:number_of_generations
     population = evolvePopulation(population, population_eval, survival_ratio);
     population_eval = objective_function(population);
-
+    
     generation_history(end + 1) = evaluateGeneration(population, population_eval);
 end
 
