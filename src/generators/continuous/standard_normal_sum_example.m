@@ -7,12 +7,11 @@ clc
 
 
 %% Parameters
-% The aim is to generate from standard normal distribution.
+% The aim is to generate a sample from standard normal distribution.
 
+sample_size = 1e4;
 % define pdf of N(0, 1)
 pdf = @(x) normpdf(x);
-% sample size
-n = 1e4;
 % numbers of sum of elements
 sum_counts = [1, 2, 3, 12, 50];
 
@@ -20,20 +19,22 @@ sum_counts = [1, 2, 3, 12, 50];
 %% Generation
 
 % create empty array for all samples
-all_samples = nan(n, numel(sum_counts));
+all_samples = nan(sample_size, numel(sum_counts));
 
 % generate for all numbers of sum of elements
 for idx = 1:numel(sum_counts)
-    % current value of number of sum of elements
+    % current number of sum of elements
     sum_count_now = sum_counts(idx);
     % generate using function defined at the end of this file
-    all_samples(:, idx) = generate_by_summation(n, sum_count_now);
+    all_samples(:, idx) = generate_by_summation(sample_size, sum_count_now);
 end
 
 
 %% Visualisation
 
-figure("Name", "normal_by_sum")
+figure( ...
+    "Name", "normal_by_sum", ...
+    "Color", "white")
 tiledlayout("flow",...
     "Padding", "tight")
 
@@ -47,19 +48,19 @@ for idx = 1:numel(sum_counts)
         "FaceColor", "black",...
         "EdgeColor", "white",...
         "Normalization", "pdf",...
-        "DisplayName", "histogram");
+        "DisplayName", "Sample Histogram");
     
     % draw pdf, N(0, 1)
     hf = fplot(pdf,...
         "LineWidth", 1.5,...
-        "Color", [1, 0, 0]);
+        "Color", "red");
     
     xlabel("domain")
     ylabel("probability density")
     
     % add title with propper singular case
     if sum_counts(idx) == 1
-        title("Using Sum of one Variable")
+        title("Using Single Variable")
     else
         title("Using Sum of " + sum_counts(idx) + " Variables")
     end

@@ -21,17 +21,17 @@ clc
 %
 
 % probability density function with set parameter
-cauchy_pdf = @(x) 1./(pi * (1 + x.^2));
+cauchy_pdf = @(x) 1 ./ (pi * (1 + x.^2));
 % inverse cumulative distribution function
 cauchy_icdf = @(y) tan(pi * (y - 0.5));
 % sample size
-n = 1e6;
+sample_size = 1e6;
 
 
 %% Generation
 
 % generate sample from U(0, 1)
-r_uniform = rand(n, 1);
+r_uniform = rand(sample_size, 1);
 % use icdf
 r_cauchy = cauchy_icdf(r_uniform);
 

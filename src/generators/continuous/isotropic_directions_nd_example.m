@@ -8,12 +8,11 @@ clc
 
 %% Parameters
 
-% sample size
-n = 5e2;
+sample_size = 5e2;
 % dimension
-d = 4;
-% flag to run animation
-run_animation = false;
+sapce_dimension = 3;
+% flag to run animation, try to run this script with true
+run_animation = true;
 
 
 %% Generation
@@ -26,7 +25,7 @@ run_animation = false;
 % Note that random vector $Y$ has unit norm.
 
 % generate array of n times d elements from N(0, 1);
-X = randn(n, d);
+X = randn(sample_size, sapce_dimension);
 % compute norm of every row
 X_norm = sqrt(sum(X.^2, 2));
 % compute Y
@@ -37,13 +36,13 @@ Y = X ./ X_norm;
 
 % draw only if dimension can be worked with
 projection_note = "";
-switch d
+switch sapce_dimension
     case 1
         % if only 1d, do not continue
         return
     case 2
         % if only 2d, add third coordinate with only zero values
-        Y = [Y, zeros(n, 1)];
+        Y = [Y, zeros(sample_size, 1)];
     case 3
         % 3d case can be drawn without changes
     otherwise
@@ -51,13 +50,14 @@ switch d
         projection_note = " (projection)";
 end
 
-hf = figure("Name", "isotropic_in_nd",...
+hf = figure( ...
+    "Name", "isotropic_in_nd",...
     "Color", "white");
 hold on
 
 % draw random points
 scatter3(Y(:, 1), Y(:, 2), Y(:, 3), ". black",...
-    "DisplayName", "random sample")
+    "DisplayName", "Random Sample")
 % draw point (0, 0, 0) for orientation
 scatter3(0, 0, 0, "filled", "red",...
     "DisplayName", "(0, 0, 0)")
@@ -67,7 +67,7 @@ axis vis3d off
 
 % add legend with title
 hl = legend("Location", "southeast");
-title(hl, "Isotropic Directions in " + d + "d" + projection_note)
+title(hl, "Isotropic Directions in " + sapce_dimension + "d" + projection_note)
 
 % run animation while figure window is open
 angl = 1;
